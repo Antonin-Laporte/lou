@@ -384,11 +384,10 @@
   function sendWhatsapp(){
     const daysOrder = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
     const sortedDays = selectedDays.slice().sort((a,b)=>daysOrder.indexOf(a)-daysOrder.indexOf(b));
-    const message = "🚨 ALERTE FORMULAIRE 🚨\n\nLou a rempli le questionnaire officiel, voici ses réponses :\n\n" +
+    const message = "Coucou, voici mes réponses :\n\n" +
       "Dispo : " + sortedDays.join(", ") + "\n" +
       "Envie de : " + selectedActivities.join(", ") +
-      (noteText ? "\nPetit mot : " + noteText : "") + "\n\n" +
-      "Fin de la transmission. À toi de jouer 🫡";
+      (noteText ? "\nPetit mot : " + noteText : "");
     const url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(message);
     window.open(url, "_blank");
   }
