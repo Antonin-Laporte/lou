@@ -384,7 +384,7 @@
   function sendWhatsapp(){
     const daysOrder = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
     const sortedDays = selectedDays.slice().sort((a,b)=>daysOrder.indexOf(a)-daysOrder.indexOf(b));
-    const message = "Coucou, voici mes réponses :\n\n" +
+    const message = "Voici ce que j'ai choisi pour ma prochaine soirée de kiffeuse :\n\n" +
       "Dispo : " + sortedDays.join(", ") + "\n" +
       "Envie de : " + selectedActivities.join(", ") +
       (noteText ? "\nPetit mot : " + noteText : "");
