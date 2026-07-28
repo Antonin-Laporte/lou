@@ -204,11 +204,6 @@
     width:auto;
     padding:8px 12px;
   }
-  .btn.whatsapp{
-    background:linear-gradient(135deg,#25D366,#1ebe5b);
-    box-shadow:0 10px 20px rgba(37,211,102,0.3);
-  }
-
   .recap{
     text-align:left;
     background:var(--cream);
@@ -335,8 +330,7 @@
     <h2>Petit récap de ta prochaine soirée de kiffeuse</h2>
     <p class="sub">Mon papa te remercie, il se charge de l'organisation</p>
     <div class="recap" id="recap"></div>
-    <p class="sub" style="margin-bottom:16px;">Un dernier effort pour envoyer à l'organisateur</p>
-    <button class="btn whatsapp" onclick="sendWhatsapp()">Envoyer</button>
+    <p class="sub" style="margin-bottom:16px;">Tu as juste à envoyer le screen de ce super récap pour que mon papa prépare tout ça 🫶</p>
     <button class="btn ghost" onclick="goTo(5)">← J'ai changé d'avis</button>
   </div>
 
@@ -433,17 +427,6 @@
       "Dispo : <b>" + sortedDays.join(", ") + "</b><br>" +
       "Envie de : <b>" + selectedActivities.join(", ") + "</b>" +
       (noteText ? "<br>Petit mot : <b>" + noteText + "</b>" : "");
-  }
-
-  function sendWhatsapp(){
-    const daysOrder = ["Jeudi 30 juillet","Vendredi 31 juillet","Samedi 1 août","Dimanche 2 août","Lundi 3 août","Mardi 4 août","Mercredi 5 août","Jeudi 6 août"];
-    const sortedDays = selectedDays.slice().sort((a,b)=>daysOrder.indexOf(a)-daysOrder.indexOf(b));
-    const message = "Voici ce que j'ai choisi pour ma prochaine soirée de kiffeuse :\n\n" +
-      "Dispo : " + sortedDays.join(", ") + "\n" +
-      "Envie de : " + selectedActivities.join(", ") +
-      (noteText ? "\nPetit mot : " + noteText : "");
-    const url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(message);
-    window.open(url, "_blank");
   }
 </script>
 
