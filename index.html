@@ -240,6 +240,7 @@
     <div class="dot" data-step="3"></div>
     <div class="dot" data-step="4"></div>
     <div class="dot" data-step="5"></div>
+    <div class="dot" data-step="6"></div>
   </div>
 
   <!-- Step 0 : intro -->
@@ -295,25 +296,33 @@
     <button class="btn ghost" onclick="goTo(2)">← Retour</button>
   </div>
 
-  <!-- Step 4 : free note -->
+  <!-- Step 4 : star reveal -->
   <div class="step" data-step="4">
+    <img src="ricard.jpg" alt="Star" style="width:100%; max-width:340px; border-radius:20px; box-shadow:var(--shadow); margin-bottom:18px;">
+    <h1>Je savais pas que tu étais une star</h1>
+    <button class="btn" onclick="goTo(5)">Suivant →</button>
+    <button class="btn ghost" onclick="goTo(3)">← Retour</button>
+  </div>
+
+  <!-- Step 5 : free note -->
+  <div class="step" data-step="5">
     <span class="emoji-big">✏️</span>
     <h2>Un petit mot ?</h2>
     <p class="sub">Une petite précision à partager à l'organisateur ?</p>
     <textarea id="note-input" rows="4" placeholder="Écris ici si tu veux..." style="width:100%; border:2px solid var(--pink-1); border-radius:16px; padding:14px 16px; font-family:Georgia, serif; font-size:1rem; color:var(--text); resize:none; margin-bottom:24px;"></textarea>
-    <button class="btn" onclick="goTo(5)">Voir le récap →</button>
-    <button class="btn ghost" onclick="goTo(3)">← Retour</button>
+    <button class="btn" onclick="goTo(6)">Voir le récap →</button>
+    <button class="btn ghost" onclick="goTo(4)">← Retour</button>
   </div>
 
-  <!-- Step 5 : recap + send -->
-  <div class="step" data-step="5">
+  <!-- Step 6 : recap + send -->
+  <div class="step" data-step="6">
     <img src="chien2.jpg" alt="Le chien" style="width:120px; height:120px; object-fit:cover; border-radius:50%; border:4px solid var(--pink-2); box-shadow:var(--shadow); margin-bottom:14px;">
     <h2>Petit récap de ta prochaine soirée de kiffeuse</h2>
     <p class="sub">Mon papa te remercie, il se charge de l'organisation</p>
     <div class="recap" id="recap"></div>
     <p class="sub" style="margin-bottom:16px;">Un dernier effort pour envoyer à l'organisateur</p>
     <button class="btn whatsapp" onclick="sendWhatsapp()">Envoyer</button>
-    <button class="btn ghost" onclick="goTo(4)">← J'ai changé d'avis</button>
+    <button class="btn ghost" onclick="goTo(5)">← J'ai changé d'avis</button>
   </div>
 
 </div>
@@ -347,10 +356,10 @@
       el.classList.toggle('done', s < step);
     });
     currentStep = step;
-    if(step === 4){
+    if(step === 5){
       document.getElementById('note-input').value = noteText;
     }
-    if(step === 5){
+    if(step === 6){
       noteText = document.getElementById('note-input').value.trim();
       buildRecap();
     }
