@@ -225,6 +225,21 @@
     font-size:3.2rem;
     margin-bottom:10px;
   }
+
+  .jul-emoji-pop{
+    position:fixed;
+    width:56px;
+    height:56px;
+    pointer-events:none;
+    z-index:9999;
+    animation: julpop 0.9s ease-out forwards;
+  }
+  @keyframes julpop{
+    0%{ transform: translate(-50%, -50%) scale(0.3) rotate(-8deg); opacity:0; }
+    20%{ opacity:1; transform: translate(-50%, -65%) scale(1.15) rotate(4deg); }
+    70%{ opacity:1; transform: translate(-50%, -95%) scale(1) rotate(-3deg); }
+    100%{ opacity:0; transform: translate(-50%, -150%) scale(0.85) rotate(0deg); }
+  }
 </style>
 </head>
 <body>
@@ -332,6 +347,24 @@
   let selectedActivities = [];
   let noteText = "";
   let currentStep = 0;
+
+  // Jul emoji pop on click
+  function popJulEmoji(x, y){
+    const img = document.createElement('img');
+    img.src = 'julemoji.png';
+    img.alt = '';
+    img.className = 'jul-emoji-pop';
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
+    document.body.appendChild(img);
+    img.addEventListener('animationend', () => img.remove());
+  }
+  document.addEventListener('click', (e)=>{
+    const target = e.target.closest('.btn, .opt');
+    if(target){
+      popJulEmoji(e.clientX, e.clientY);
+    }
+  });
 
   // Floating background emojis
   const heartsContainer = document.getElementById('hearts');
