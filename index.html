@@ -277,8 +277,6 @@
     <img src="loujul.jpg" alt="Lou et Jul" style="width:130px; height:130px; object-fit:cover; border-radius:50%; border:4px solid var(--pink-2); box-shadow:var(--shadow); margin-bottom:14px;">
     <h2>Quand es-tu dispo la star ?</h2>
     <div class="options" id="days-options">
-      <div class="opt" data-value="Jeudi 30 juillet"><span class="icon">📅</span>Jeudi 30 juillet<span class="check"></span></div>
-      <div class="opt" data-value="Vendredi 31 juillet"><span class="icon">📅</span>Vendredi 31 juillet<span class="check"></span></div>
       <div class="opt" data-value="Samedi 1 août"><span class="icon">📅</span>Samedi 1 août<span class="check"></span></div>
       <div class="opt" data-value="Dimanche 2 août"><span class="icon">📅</span>Dimanche 2 août<span class="check"></span></div>
       <div class="opt" data-value="Lundi 3 août"><span class="icon">📅</span>Lundi 3 août<span class="check"></span></div>
@@ -421,7 +419,7 @@
   });
 
   function buildRecap(){
-    const daysOrder = ["Jeudi 30 juillet","Vendredi 31 juillet","Samedi 1 août","Dimanche 2 août","Lundi 3 août","Mardi 4 août","Mercredi 5 août","Jeudi 6 août"];
+    const daysOrder = ["Samedi 1 août","Dimanche 2 août","Lundi 3 août","Mardi 4 août","Mercredi 5 août","Jeudi 6 août"];
     const sortedDays = selectedDays.slice().sort((a,b)=>daysOrder.indexOf(a)-daysOrder.indexOf(b));
     document.getElementById('recap').innerHTML =
       "Dispo : <b>" + sortedDays.join(", ") + "</b><br>" +
